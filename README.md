@@ -1,16 +1,48 @@
 # Решатель квадратных уравнений
 
-Скрипт вычисляет дискриминант и количество корней квадратного уровнения.
+Модуль `quadratic_equation` вычисляет корни квадратного уровнения.
 
 # Как использовать
 
-Вычисляет дискриминант трех чисел, если дискриминант больше нуля - вычисляет и возвращает два корня, дискриминант равен нулю - вычисляется и возвращает один корень, дискриминант меньше нуля - уровнение не имеет корней
+Функция вычисления корней квадратного уровнения вызываеться из модуля `quadratic_equation` командой:
 
-Пример использования кода вызова функции из модуля:
+```python
+from quadratic_equation import get_roots
+```
 
-from quadratic_equation import get_roots  # импортируем функцию из модуля
+Функция `get_roots(a, b, c)` вычисляет дискриминант по формулу `discriminant = b²-4ac` и возвращает корни квадратного уровнения `root1`, `root2` в зависимостри от дискриминанта.
 
-print(get_roots(1, 2, 3))
+```python
+def get_roots(a, b, c):
+    discriminant = b ** 2 - 4 * a * c
+    if discriminant >= 0:
+        root1 = (-b - sqrt(discriminant)) / (2 * a)
+        root2 = (-b + sqrt(discriminant)) / (2 * a)
+    else:
+        return None, None
+    if discriminant == 0:
+        return root1, None
+    else:
+        return root1, root2
+```
+
+Если `discriminant` , больше или равен 0, то вычисляеться оба корня `root1`, `root2` и переходит к следующему условию, иначе вычисление корней не производится и функция возвращает `None`.
+
+```python
+if discriminant >= 0:
+    root1 = (-b - sqrt(discriminant)) / (2 * a)
+    root2 = (-b + sqrt(discriminant)) / (2 * a)
+else:
+```
+
+Если `discriminant` равен нулю то функция возвращает один корень `root1`, иначе функция возвращает оба корня `root1` и `root2`
+
+```python
+if discriminant == 0:
+    return root1, None
+else:
+    return root1, root2
+```
 
 # Как запустить
 
