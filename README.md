@@ -10,39 +10,11 @@
 from quadratic_equation import get_roots
 ```
 
-Функция `get_roots(a, b, c)` вычисляет дискриминант по формулу `discriminant = b²-4ac` и возвращает корни квадратного уровнения `root1`, `root2` в зависимостри от дискриминанта.
+Пользователь вводит три числа `A`, `B`, `C` функция вычисляет дискриминант по формулу `D = b²-4ac` и возвращает корни квадратного уровнения в зависимостри от дискриминанта:
 
-```python
-def get_roots(a, b, c):
-    discriminant = b ** 2 - 4 * a * c
-    if discriminant >= 0:
-        root1 = (-b - sqrt(discriminant)) / (2 * a)
-        root2 = (-b + sqrt(discriminant)) / (2 * a)
-    else:
-        return None, None
-    if discriminant == 0:
-        return root1, None
-    else:
-        return root1, root2
-```
-
-Если `discriminant` , больше или равен 0, то вычисляеться оба корня `root1`, `root2` и переходит к следующему условию, иначе вычисление корней не производится и функция возвращает `None`.
-
-```python
-if discriminant >= 0:
-    root1 = (-b - sqrt(discriminant)) / (2 * a)
-    root2 = (-b + sqrt(discriminant)) / (2 * a)
-else:
-```
-
-Если `discriminant` равен нулю то функция возвращает один корень `root1`, иначе функция возвращает оба корня `root1` и `root2`
-
-```python
-if discriminant == 0:
-    return root1, None
-else:
-    return root1, root2
-```
+*Если дискриминант больше нуля, то вычисляеться оба корня
+*Если дискриминант равен нулю то функция возвращает один корень
+*Если дискриминант меньше нуля вычисление корней не производится
 
 # Как запустить
 
